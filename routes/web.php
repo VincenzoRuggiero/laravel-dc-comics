@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PageController as PageController;
+use App\Http\Controllers\ComicController as ComicController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PageController::class, 'index']);
+
+Route::get('/products', [ComicController::class, 'index']);

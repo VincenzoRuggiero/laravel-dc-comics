@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comic;
 use Illuminate\Http\Request;
 
 //Milestone 1 - Controller created with '-r' shortcut command to populate CRUD ops
-class ProductController extends Controller
+class ComicController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $comics = Comic::all();
+        return view('products.index', compact('comics'));
     }
 
     /**
@@ -46,7 +48,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('products.show');
     }
 
     /**
