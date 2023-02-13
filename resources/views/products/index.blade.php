@@ -14,6 +14,7 @@
                           <th scope="col">Series</th>
                           <th scope="col">Sale date</th>
                           <th scope="col">Type</th>
+                          <th scope="col">Action</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -25,6 +26,7 @@
                           <td>{{ $comic['series']}}</td>
                           <td>{{ $comic['sale_date']}}</td>
                           <td>{{ $comic['type']}}</td>
+                          <td><a class="btn btn-primary" href="products/{{ $comic['id']}}">Show</a></td>
                         </tr>
                         @endforeach
                       </tbody>
