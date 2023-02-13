@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PageController::class, 'index']);
+//Controler to route pages that guest users can see
+Route::get('/', [PageController::class, 'index'])->name('home');
 
-Route::get('/products', [ComicController::class, 'index']);
+//Controllers to route Products pages
+Route::get('/products', [ComicController::class, 'index'])->name('products.index');
+Route::get('/products/{id}', [ComicController::class, 'show'])->name('products.show');

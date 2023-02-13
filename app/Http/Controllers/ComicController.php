@@ -13,6 +13,8 @@ class ComicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //Defined 'index' method to visualize all comics as a list with a table
     public function index()
     {
         $comics = Comic::all();
@@ -46,9 +48,13 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //Defined 'show' method to visualize a single comic in a separate page
     public function show($id)
     {
-        return view('products.show');
+        $comic = Comic::findOrFail($id);
+        // dd($comic);
+        return view('products.show', compact('comic'));
     }
 
     /**
