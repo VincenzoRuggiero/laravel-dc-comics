@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <form action="{{ route('products.store' )}}" method="POST">
+            <form action="{{ route('admin.products.store' )}}" method="POST">
             @csrf    
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>

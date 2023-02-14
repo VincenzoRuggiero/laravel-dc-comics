@@ -6,9 +6,10 @@
  {{-- Button to create new product that'll be inserted in comics db --}}
       <div class="row">
         <div class="col-12">
-          <a href="" class="btn btn-primary">Create New Product</a> 
+          <a href="{{ route('admin.products.create') }}" class="btn btn-primary">Create New Product</a> 
         </div>
       </div>
+ {{-- Bootstrap table created using database data --}}
         <div class="row">
             <div class="col-12">
                 <table class="table">
@@ -32,7 +33,7 @@
                           <td>{{ $comic['series']}}</td>
                           <td>{{ $comic['sale_date']}}</td>
                           <td>{{ $comic['type']}}</td>
-                          <td><a class="btn btn-primary" href="products/{{ $comic['id']}}">Show</a></td>
+                          <td><a class="btn btn-primary" href="{{ route('admin.products.show', $comic['id'])  }}">Show</a></td>
                         </tr>
                         @endforeach
                       </tbody>
