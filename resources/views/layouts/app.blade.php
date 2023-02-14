@@ -19,5 +19,6 @@
     @yield('home-content')
     @yield('index-content')
     @yield('show-content')
+    @yield('create-form')
 </body>
 </html>
