@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 
-//Milestone 1 - Controller created with '-r' shortcut command to populate CRUD ops
+// Milestone 1 - Controller created with '-r' shortcut command to populate CRUD ops
 class ComicController extends Controller
 {
     /**
@@ -14,7 +14,7 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    //Defined 'index' method to visualize all comics as a list with a table
+    // Defined 'index' method to visualize all comics as a list with a table
     public function index()
     {
         $comics = Comic::all();
@@ -39,6 +39,7 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+    // Get data from Create blade's input fields to be then stored in db
         $formData = $request->all();
 
         $newComic = new Comic();
@@ -51,6 +52,8 @@ class ComicController extends Controller
         $newComic->type = $formData['type'];
         $newComic->save();
 
+    // After storing the item the browser self-opens the newly created 
+    // product/comic
         return redirect()->route('products.show', $newComic->id);
 
 
@@ -63,7 +66,7 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    //Defined 'show' method to visualize a single comic in a separate page
+    // Defined 'show' method to visualize a single comic in a separate page
     public function show($id)
     {
         $comic = Comic::findOrFail($id);
