@@ -3,6 +3,12 @@
 @section('index-content')
     <h1 class="p-3">Comics List</h1>
     <div class="container">
+ {{-- Button to create new product that'll be inserted in comics db --}}
+      <div class="row">
+        <div class="col-12">
+          <a href="" class="btn btn-primary">Create New Product</a> 
+        </div>
+      </div>
         <div class="row">
             <div class="col-12">
                 <table class="table">
