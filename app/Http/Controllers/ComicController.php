@@ -54,7 +54,9 @@ class ComicController extends Controller
 
     // After storing the item the browser self-opens the newly created 
     // product/comic
-        return redirect()->route('products.show', $newComic->id);
+        // return redirect()->route('products.show', $newComic->id);
+
+        return redirect()->route('products.index');
 
 
     }
