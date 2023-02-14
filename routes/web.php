@@ -21,4 +21,5 @@ Route::get('/', [PageController::class, 'index'])->name('home');
 //Controllers to route Products pages
 Route::get('/products', [ComicController::class, 'index'])->name('products.index');
 Route::get('/products/create', [ComicController::class, 'create'])->name('products.create');
+Route::post('products/store', [ComicController::class, 'store'])->name('products.store');
 Route::get('/products/{id}', [ComicController::class, 'show'])->name('products.show');
