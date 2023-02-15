@@ -89,8 +89,9 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   
+        $comic = Comic::findOrFail($id);
+        return view('admin.products.edit', compact('comic'));
     }
 
     /**
