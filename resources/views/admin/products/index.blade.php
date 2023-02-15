@@ -25,18 +25,18 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($comics as $comic)
+                        @foreach ($comics as $product)
                         <tr>
-                          <td>{{ $comic['id']}}</td>
-                          <td>{{ $comic['title']}}</td>
-                          <td>{{ $comic['price']}}</td>
-                          <td>{{ $comic['series']}}</td>
-                          <td>{{ $comic['sale_date']}}</td>
-                          <td>{{ $comic['type']}}</td>
-                          <td><a class="btn btn-primary" href="{{ route('admin.products.show', $comic['id'])  }}">Show</a></td>
-                          <td><a class="btn btn-secondary" href="{{ route('admin.products.edit', $comic['id'])  }}">Edit</a></td>
+                          <td>{{ $product['id']}}</td>
+                          <td>{{ $product['title']}}</td>
+                          <td>{{ $product['price']}}</td>
+                          <td>{{ $product['series']}}</td>
+                          <td>{{ $product['sale_date']}}</td>
+                          <td>{{ $product['type']}}</td>
+                          <td><a class="btn btn-primary" href="{{ route('admin.products.show', $product['id'])  }}">Show</a></td>
+                          <td><a class="btn btn-secondary" href="{{ route('admin.products.edit', $product['id'])  }}">Edit</a></td>
                           <td>
-                            <form action="{{ route('admin.products.destroy', $comic->id) }}" method="POST">
+                            <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST">
                               @csrf
                               @method('DELETE')
                               <button class="btn btn-danger">Delete</button>
