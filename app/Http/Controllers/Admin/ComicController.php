@@ -121,7 +121,7 @@ class ComicController extends Controller
     public function destroy(Comic $product)
     // public function destroy($id)
     {   
-        // $comic = Comic::findOrFail($id);
+        // $product = Comic::findOrFail($id);
 
         $product->delete();
         return redirect()->route('admin.products.index');
