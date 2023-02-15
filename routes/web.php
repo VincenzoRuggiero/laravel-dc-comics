@@ -24,6 +24,7 @@ Route::get('/', [PageController::class, 'index'])->name('home');
 // Route::post('products/store', [ComicController::class, 'store'])->name('products.store');
 // Route::get('/products/{id}', [ComicController::class, 'show'])->name('products.show');
 // Route::get('/products/{id}/edit', [ComicController::class, 'edit'])->name('products.edit');
+// Route::post('/products/{id}', [ComicController::class, 'destroy'])->name('products.destroy');
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('products', ComicController::class);
