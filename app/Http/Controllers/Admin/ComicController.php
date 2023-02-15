@@ -70,44 +70,44 @@ class ComicController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Comic $product
      * @return \Illuminate\Http\Response
      */
 
     // Defined 'show' method to visualize a single comic in a separate page
-    public function show($id)
+    public function show(Comic $product)
     {
-        $comic = Comic::findOrFail($id);
+        $product->id;
         // dd($comic);
-        return view('admin.products.show', compact('comic'));
+        return view('admin.products.show', compact('product'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Comic $product
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $product)
     {   
-        $comic = Comic::findOrFail($id);
-        return view('admin.products.edit', compact('comic'));
+        $product->id;
+        return view('admin.products.edit', compact('product'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Comic $product
      * @return \Illuminate\Http\Response
      */
 
     // Update stored db data with the 'edit' blade's form
-    public function update(Request $request, $id)
+    public function update(Request $request, $product)
     {
         $formData = $request->all();
-        $comic = Comic::findOrFail($id);
-        $comic->update($formData);
+        $product->id;
+        $product->update($formData);
 
         return redirect()->route('admin.products.index');
     }
@@ -115,14 +115,15 @@ class ComicController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Comic $comic
+     * @param  Comic $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comic $comic)
+    public function destroy(Comic $product)
     // public function destroy($id)
     {   
         // $comic = Comic::findOrFail($id);
-        $comic->delete();
+
+        $product->delete();
         return redirect()->route('admin.products.index');
     }
 }
