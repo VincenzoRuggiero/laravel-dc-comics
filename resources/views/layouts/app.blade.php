@@ -20,5 +20,6 @@
     @yield('index-content')
     @yield('show-content')
     @yield('create-form')
+    @yield('edit-form')
 </body>
 </html>
