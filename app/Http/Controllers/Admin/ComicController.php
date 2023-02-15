@@ -101,9 +101,15 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    // Update stored db data with the 'edit' blade's form
     public function update(Request $request, $id)
     {
-        //
+        $formData = $request->all();
+        $comic = Comic::findOrFail($id);
+        $comic->update($formData);
+
+        return redirect()->route('admin.products.index');
     }
 
     /**
