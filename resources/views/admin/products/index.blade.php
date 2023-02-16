@@ -3,6 +3,29 @@
 @section('index-content')
     <h1 class="p-3">Comics List</h1>
     <div class="container">
+ {{-- Flash messages that appear when an action has been made --}}
+      @if (session()->has('success'))
+      <div class="row">
+        <div class="col-12 alert alert-success text-center">
+          {{ session('success') }}
+        </div>
+      </div>
+
+      @elseif (session()->has('error'))
+      <div class="row">
+        <div class="col-12 alert alert-danger text-center">
+          {{ session('error') }}
+        </div>
+      </div>
+
+      @elseif (session()->has('info'))
+      <div class="row">
+        <div class="col-12 alert alert-primary text-center">
+          {{ session('info') }}
+        </div>
+      </div>
+        
+      @endif
  {{-- Button to create new product that'll be inserted in comics db --}}
       <div class="row">
         <div class="col-12">

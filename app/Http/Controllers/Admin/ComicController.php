@@ -52,6 +52,7 @@ class ComicController extends Controller
         ],
         [
             'title.required' => 'Il campo "Titolo" non può essere vuoto',
+            'thumb.required' => 'Il campo "Immagine" non può essere vuoto',
             'price.required' => 'Il campo "Prezzo" non può essere vuoto',
             'series.required' => 'Il campo "Serie" non può essere vuoto',
             'sale_date.required' => 'Il campo "Data di uscita" non può essere vuoto',
@@ -78,7 +79,7 @@ class ComicController extends Controller
     // return redirect()->route('products.show', $newComic->id);
 
     // Redirect to index page with all products listed
-        return redirect()->route('admin.products.index');
+        return redirect()->route('admin.products.index')->with('success', 'Il prodotto è stato inserito');
 
 
     }
@@ -134,6 +135,7 @@ class ComicController extends Controller
         ],
         [
             'title.required' => 'Il campo "Titolo" non può essere vuoto',
+            'thumb.required' => 'Il campo "Immagine" non può essere vuoto',
             'price.required' => 'Il campo "Prezzo" non può essere vuoto',
             'series.required' => 'Il campo "Serie" non può essere vuoto',
             'sale_date.required' => 'Il campo "Data di uscita" non può essere vuoto',
@@ -144,7 +146,7 @@ class ComicController extends Controller
         $product->update($formData);
 
 
-        return redirect()->route('admin.products.index');
+        return redirect()->route('admin.products.index')->with('info', 'Il prodotto è stato aggiornato');;
     }
 
     /**
@@ -159,6 +161,6 @@ class ComicController extends Controller
         // $product = Comic::findOrFail($id);
 
         $product->delete();
-        return redirect()->route('admin.products.index');
+        return redirect()->route('admin.products.index')->with('error', 'Il prodotto è stato cancellato');
     }
 }
