@@ -52,10 +52,10 @@ class ComicController extends Controller
             'type' => 'nullable|string|max:100',
         ],
         [
-            'title.required' => 'Please enter a Title',
-            'description.required' => 'Please enter a Description',
-            'price.required' => 'Please enter a Price',
-            'sale_date.required' => 'Please enter a Date',
+            'title.required' => 'Il campo "Titolo" non può essere vuoto',
+            'description.required' => 'Il campo "Descrizione" non può essere vuoto',
+            'price.required' => 'Il campo "Prezzo" non può essere vuoto',
+            'sale_date.required' => 'Il campo "Data di uscita" non può essere vuoto',
         ]
     );
 
