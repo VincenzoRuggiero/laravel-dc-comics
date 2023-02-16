@@ -42,6 +42,22 @@ class ComicController extends Controller
     {
     // Get data from Create blade's input fields to be then stored in db
         $formData = $request->all();
+        $request->validate([
+            'title' => 'required|string|max:100',
+            'description' => 'required|string|max:300',
+            'thumb' => 'nullable|string|max:200',
+            'price' => 'required|numeric',
+            'series' => 'nullable|string|max:100',
+            'sale_date' => 'required|date',
+            'type' => 'nullable|string|max:100',
+        ],
+        [
+            'title.required' => 'Please enter a Title',
+            'description.required' => 'Please enter a Description',
+            'price.required' => 'Please enter a Price',
+            'sale_date.required' => 'Please enter a Date',
+        ]
+    );
 
         $newComic = new Comic();
         // $newComic->title = $formData['title'];
