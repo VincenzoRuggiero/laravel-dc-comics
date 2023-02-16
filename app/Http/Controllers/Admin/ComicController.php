@@ -43,21 +43,21 @@ class ComicController extends Controller
     // Get data from Create blade's input fields to be then stored in db
         $formData = $request->all();
         $request->validate([
-            'title' => 'required|string|max:100',
-            'description' => 'required|string|max:300',
-            'thumb' => 'nullable|string|max:200',
+            'title' => 'required|string|max:255',
+            'thumb' => 'required|string|max:200',
             'price' => 'required|numeric',
-            'series' => 'nullable|string|max:100',
+            'series' => 'required|string|max:100',
             'sale_date' => 'required|date',
-            'type' => 'nullable|string|max:100',
+            'type' => 'required|string|max:100',
         ],
         [
             'title.required' => 'Il campo "Titolo" non può essere vuoto',
-            'description.required' => 'Il campo "Descrizione" non può essere vuoto',
             'price.required' => 'Il campo "Prezzo" non può essere vuoto',
+            'series.required' => 'Il campo "Serie" non può essere vuoto',
             'sale_date.required' => 'Il campo "Data di uscita" non può essere vuoto',
+            'type.required' => 'Il campo "Tipo" non può essere vuoto'
         ]
-    );
+        );
 
         $newComic = new Comic();
         // $newComic->title = $formData['title'];
@@ -114,16 +114,35 @@ class ComicController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  Comic $product
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
 
     // Update stored db data with the 'edit' blade's form
-    public function update(Request $request, $product)
+    public function update(Request $request, $id)
     {
         $formData = $request->all();
-        $product->id;
+        $product = Comic::findOrFail($id);
+
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'thumb' => 'required|string|max:200',
+            'price' => 'required|numeric',
+            'series' => 'required|string|max:100',
+            'sale_date' => 'required|date',
+            'type' => 'required|string|max:100',
+        ],
+        [
+            'title.required' => 'Il campo "Titolo" non può essere vuoto',
+            'price.required' => 'Il campo "Prezzo" non può essere vuoto',
+            'series.required' => 'Il campo "Serie" non può essere vuoto',
+            'sale_date.required' => 'Il campo "Data di uscita" non può essere vuoto',
+            'type.required' => 'Il campo "Tipo" non può essere vuoto'
+        ]
+        );
+
         $product->update($formData);
+
 
         return redirect()->route('admin.products.index');
     }

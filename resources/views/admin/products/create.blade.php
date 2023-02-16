@@ -3,6 +3,7 @@
 @section('create-form')
 <h1 class="p-3">Create new product</h1>
 <div class="container">
+    <a href="{{ route('admin.products.index')}}">&larr; Back to list</a>
     <div class="row">
         <div class="col-6">
             @if ($errors->any())
